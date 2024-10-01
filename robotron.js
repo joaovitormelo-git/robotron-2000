@@ -1,43 +1,52 @@
-// const cores = {
-//     cores: ['img/robotron-vermelho.png', 'img/robotron-amarelo.png', 'img/robotron-branco.png',
-//         'img/robotron-preto.png', 'img/robotron-rosa.png', 'img/robotron-azul.png'],
+const cores = {
+  cores: [
+    'img/robotron-vermelho.png', 
+    'img/robotron-amarelo.png', 
+    'img/robotron-branco.png', 
+    'img/robotron-preto.png', 
+    'img/robotron-rosa.png', 
+    'img/robotron-azul.png'
+  ]
+};
 
-//     percorrer: function () {
-//         for (let i = 0; i < cores; i++) {
-//             return cores.length
-//         }
-//     }
+let indiceCorAtual = 0;
+const robo = document.querySelector('.robo');
+const botaoProximo = document.querySelector('.proximo');
+const botaoAnterior = document.querySelector('.anterior');
 
-// }
+function atualizarCor() {
+  robo.src = cores.cores[indiceCorAtual];
 
-let cores = ['.img/robotron-vermelho.png', '.img/robotron-amarelo.png', '.img/robotron-branco.png',
-'.img/robotron-preto.png', '.img/robotron-rosa.png', '.img/robotron-azul.png']
-let corAtual = 0
+botaoProximo.addEventListener('click', (event) => {
+  event.preventDefault();
+  indiceCorAtual = (indiceCorAtual + 1) % cores.cores.length;
+  atualizarCor();
+});
 
-let roboImagem = document.querySelector('.robo')
+botaoAnterior.addEventListener('click', (event) => {
+  event.preventDefault();
+  indiceCorAtual = (indiceCorAtual - 1 + cores.cores.length) % cores.cores.length;
+  atualizarCor();
+});
 
-function percorrer(cores) {
-    for (let i = 0; i < cores; i++)
-    return cores.length
-}
+// Ajuste dos botões
+const botoesAjuste = document.querySelectorAll('.controle-ajuste');
 
-const esquerda = document.querySelector('.esquerda')
-let robo = document.querySelector('.robo')
-esquerda.document.addEventListener('click', function () {
-    esquerda.style.percorrer()
-    return robotron
-})
-const direita = document.querySelector('.direita')
-let robo = document.querySelector('.robo')
-direita.document.addEventListener('click', function () {
-    direita.style.percorrer()
-    return robotron
-})
+botoesAjuste.forEach((botao) => {
+  botao.addEventListener('click', (event) => {
+    event.preventDefault();
 
-// let cores = ['img/robotron-vermelho.png', 'img/robotron-amarelo.png', 'img/robotron-branco.png',
-// 'img/robotron-preto.png', 'img/robotron-rosa.png', 'img/robotron-azul.png']
-// function percorrer(cores) {
-//     for (let i = 0; i < cores; i++)
-//     return cores.length
-// }
+    const controleContador = event.target.parentElement.querySelector('.controle-contador');
+    let valorAtual = parseInt(controleContador.value); 
 
+    if (event.target.textContent === "+") {
+      if (valorAtual < 10) { 
+        controleContador.value = valorAtual + 1;
+      }
+    } else {
+      if (valorAtual > 0) {
+        controleContador.value = valorAtual - 1;
+      }
+    }
+  });
+});
