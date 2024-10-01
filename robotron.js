@@ -9,6 +9,15 @@ const cores = {
   ]
 };
 
+// const estatisticas = {
+//   'img/robotron-vermelho.png': { forca: 800, poder: 700, energia: 300, velocidade: 600 },
+//   'img/robotron-amarelo.png': { forca: 750, poder: 650, energia: 280, velocidade: 620 },
+//   'img/robotron-branco.png': { forca: 720, poder: 620, energia: 290, velocidade: 610 },
+//   'img/robotron-preto.png': { forca: 780, poder: 680, energia: 320, velocidade: 590 },
+//   'img/robotron-rosa.png': { forca: 770, poder: 660, energia: 310, velocidade: 600 },
+//   'img/robotron-azul.png': { forca: 790, poder: 690, energia: 330, velocidade: 580 },
+// };
+
 let indiceCorAtual = 0;
 const robo = document.querySelector('.robo');
 const botaoProximo = document.querySelector('.proximo');
@@ -16,6 +25,13 @@ const botaoAnterior = document.querySelector('.anterior');
 
 function atualizarCor() {
   robo.src = cores.cores[indiceCorAtual];
+  
+//   const estatisticaValores = estatisticas[robo.src];
+//   document.querySelector('.estatistica-numero:nth-child(1)').textContent = estatisticaValores.forca;
+//   document.querySelector('.estatistica-numero:nth-child(2)').textContent = estatisticaValores.poder;
+//   document.querySelector('.estatistica-numero:nth-child(3)').textContent = estatisticaValores.energia;
+//   document.querySelector('.estatistica-numero:nth-child(4)').textContent = estatisticaValores.velocidade;
+// }
 
 botaoProximo.addEventListener('click', (event) => {
   event.preventDefault();
