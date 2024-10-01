@@ -148,7 +148,7 @@ main {
     color: var(--main-branco)
 }
 
-.esquerda {
+.proximo {
     margin-top: 1em;
     font-size: 2em;
     text-transform: uppercase;
@@ -160,12 +160,12 @@ main {
     cursor: pointer;
 }
 
-.esquerda:hover {
+.proximo:hover {
     background: var(--main-preto);
     color: var(--main-branco)
 }
 
-.direita {
+.anterior {
     margin-top: 1em;
     font-size: 2em;
     text-transform: uppercase;
@@ -177,7 +177,7 @@ main {
     cursor: pointer;
 }
 
-.direita:hover {
+.anterior:hover {
     background: var(--main-preto);
     color: var(--main-branco)
 }
